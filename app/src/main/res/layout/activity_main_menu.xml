@@ -56,7 +56,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:drawableLeft="@drawable/whitemail"
             android:paddingLeft="10dp"
-            android:text="SignIn with Email"
+            android:text="Sign In with Email"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -69,7 +69,7 @@
             android:drawableLeft="@drawable/phonewhite"
             android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="SignIn with Phone"
+            android:text="Sign In with Phone"
             android:textColor="#FFFFFF" />
 
         <LinearLayout
@@ -115,7 +115,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:backgroundTint="@color/Black"
-            android:text="Signup"
+            android:text="Sign Up"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
