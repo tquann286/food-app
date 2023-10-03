@@ -13,6 +13,36 @@
         android:theme="@style/Theme.FoodApp"
         tools:targetApi="31">
         <activity
+            android:name=".DeliveryRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryLoginPhone"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Registration"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPhone"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".ChefRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".ChefLoginPhone"
+            android:exported="false" />
+        <activity
+            android:name=".ChefLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Cheflogin"
+            android:exported="false" />
+        <activity
             android:name=".ChooseOne"
             android:exported="false" />
         <activity
