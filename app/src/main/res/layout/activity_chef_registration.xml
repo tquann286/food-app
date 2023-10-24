@@ -104,7 +104,9 @@
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/CountryCode"
                     android:layout_width="120dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    app:ccp_defaultPhoneCode="84" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/Mobileno"
@@ -135,8 +137,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/Area"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
