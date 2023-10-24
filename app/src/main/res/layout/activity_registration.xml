@@ -208,14 +208,14 @@
 
                 <TableRow
                     android:id="@+id/hr"
-                    android:layout_width="105dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#595858" />
 
                 <TextView
                     android:id="@+id/OR"
-                    android:layout_width="40dp"
+                    android:layout_width="44dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="7dp"
@@ -227,7 +227,7 @@
 
                 <TableRow
                     android:id="@+id/dr"
-                    android:layout_width="98dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:background="#595858" />
