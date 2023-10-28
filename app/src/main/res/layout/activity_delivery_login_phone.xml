@@ -4,82 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img4"
-    tools:context=".Delivery_Login">
+    android:background="@drawable/img8"
+    tools:context=".DeliveryLoginPhone">
 
     <LinearLayout
         android:layout_width="280dp"
-        android:layout_height="446dp"
+        android:layout_height="400dp"
         android:id="@+id/linearlayout"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="210dp"
-        android:layout_marginBottom="210dp"
         android:background="@drawable/background_shape"
-        android:orientation="vertical"
-        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Demail"
-            android:layout_marginTop="15dp"
-            android:paddingBottom="10dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_email_24"
-                android:drawablePadding="10dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Dpassword"
-            android:layout_marginTop="11dp"
-            android:paddingBottom="5dp"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:hint="Mật khẩu"
-                android:inputType="textPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        android:padding="15dp"
+        android:orientation="vertical">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xác thực số điện thoại"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#090909"
+            android:layout_marginTop="20dp"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Dforgotpass"
-            android:text="Quên mật khẩu?"
-            android:gravity="end"
-            android:textSize="16sp"
-            android:textColor="#090909"/>
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
+            <com.hbb20.CountryCodePicker
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:id="@+id/countrycode"
+                android:layout_marginTop="10dp"
+                app:ccp_defaultPhoneCode="84"/>
+            <EditText
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/Dphonenumber"
+                android:layout_marginLeft="8dp"
+                android:inputType="number"/>
+        </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/Loginbtn"
-            android:layout_marginTop="20dp"
+            android:id="@+id/Sendotp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#5FB709"
-            android:text="Đăng nhập"
-            android:textSize="18sp"
-            android:textColor="#FFFF"/>
+            android:text="Gửi mã OTP"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/donot"
-            android:layout_gravity="center"
+            android:id="@+id/Signupif"
+            android:layout_marginTop="13dp"
             android:text="Chưa có tài khoản? Tạo ngay"
-            android:layout_marginTop="10dp"
-            android:textColor="#090909"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
             android:textSize="16sp"/>
 
         <LinearLayout
@@ -114,24 +97,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/signphone"
+            android:layout_marginTop="20dp"
             android:text="Đăng nhập với"
-            android:layout_gravity="center"
             android:textAlignment="center"
-            android:layout_marginTop="11dp"
-            android:textColor="#090909"
+            android:textColor="@color/Black"
             android:textSize="18sp"/>
-
         <Button
-            android:id="@+id/Dbtnphone"
-            android:layout_width="150dp"
+            android:layout_width="105dp"
             android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="#17A2C0"
-            android:drawableLeft="@drawable/phonewhite"
+            android:id="@+id/DbtnEmail"
+            android:backgroundTint="#EB0D0D"
+            android:text="Email"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/whitemail"
             android:padding="5dp"
-            android:text="Điện thoại"
-            android:textColor="#FFFF"/>
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
