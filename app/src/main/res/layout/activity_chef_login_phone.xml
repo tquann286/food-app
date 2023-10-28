@@ -4,6 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img8"
     tools:context=".ChefLoginPhone">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="400dp"
+        android:id="@+id/linearlayout"
+        android:background="@drawable/background_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xác thực số điện thoại"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#090909"
+            android:layout_marginTop="20dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.hbb20.CountryCodePicker
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:id="@+id/CountryCode"
+                android:layout_marginTop="10dp"
+                app:ccp_defaultPhoneCode="84"/>
+            <EditText
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/number"
+                android:layout_marginLeft="8dp"
+                android:inputType="number"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/otp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#5FB709"
+            android:text="Gửi mã OTP"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/acsignup"
+            android:layout_marginTop="13dp"
+            android:text="Chưa có tài khoản? Tạo ngay"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TableRow
+                android:id="@+id/hr"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#090909"/>
+            <TextView
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/OR"
+                android:text="Hoặc"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="#090909"/>
+            <TableRow
+                android:id="@+id/dr"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#090909"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signphone"
+            android:layout_marginTop="20dp"
+            android:text="Đăng nhập với"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="18sp"/>
+        <Button
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnEmail"
+            android:backgroundTint="#EB0D0D"
+            android:text="Email"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/whitemail"
+            android:padding="5dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
