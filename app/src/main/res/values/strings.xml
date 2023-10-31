@@ -6,65 +6,8 @@
 
     <string-array name="State">
         <item>Hà Nội</item>
-        <item>Hà Giang</item>
-        <item>Cao Bằng</item>
-        <item>Lào Cai</item>
-        <item>Điện Biên</item>
-        <item>Lai Châu</item>
-        <item>Sơn La</item>
-        <item>Yên Bái</item>
-        <item>Tuyên Quang</item>
-        <item>Lạng Sơn</item>
-        <item>Quảng Ninh</item>
-        <item>Bắc Giang</item>
-        <item>Phú Thọ</item>
-        <item>Vĩnh Phúc</item>
-        <item>Bắc Ninh</item>
-        <item>Hải Dương</item>
-        <item>Hải Phòng</item>
-        <item>Hưng Yên</item>
-        <item>Thái Bình</item>
-        <item>Hà Nam</item>
-        <item>Nam Định</item>
-        <item>Ninh Bình</item>
-        <item>Thanh Hóa</item>
-        <item>Nghệ An</item>
-        <item>Hà Tĩnh</item>
-        <item>Quảng Bình</item>
-        <item>Quảng Trị</item>
-        <item>Thừa Thiên-Huế</item>
-        <item>Đà Nẵng</item>
-        <item>Quảng Nam</item>
-        <item>Quảng Ngãi</item>
-        <item>Bình Định</item>
-        <item>Phú Yên</item>
-        <item>Khánh Hòa</item>
-        <item>Ninh Thuận</item>
-        <item>Bình Thuận</item>
-        <item>Kon Tum</item>
-        <item>Gia Lai</item>
-        <item>Đắk Lắk</item>
-        <item>Đắk Nông</item>
-        <item>Lâm Đồng</item>
-        <item>Bình Phước</item>
-        <item>Tây Ninh</item>
-        <item>Bình Dương</item>
-        <item>Đồng Nai</item>
-        <item>Bà Rịa-Vũng Tàu</item>
-        <item>Sài Gòn (TP. Hồ Chí Minh)</item>
-        <item>Long An</item>
-        <item>Tiền Giang</item>
-        <item>Bến Tre</item>
-        <item>Trà Vinh</item>
-        <item>Vĩnh Long</item>
-        <item>Đồng Tháp</item>
-        <item>An Giang</item>
-        <item>Kiên Giang</item>
-        <item>Cần Thơ</item>
-        <item>Hậu Giang</item>
-        <item>Sóc Trăng</item>
-        <item>Bạc Liêu</item>
-        <item>Cà Mau</item>
+        <item>Thừa Thiên Huế</item>
+        <item>TP. Hồ Chí Minh</item>
     </string-array>
 
     <string-array name="shipper">

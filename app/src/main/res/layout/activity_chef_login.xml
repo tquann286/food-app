@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
             android:layout_gravity="center"
-            android:text="Chưa có tài khoản? Tạo"
+            android:text="Chưa có tài khoản? Tạo ngay"
             android:layout_marginTop="10dp"
             android:textColor="#090909"
             android:textSize="16sp"/>

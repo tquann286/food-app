@@ -110,12 +110,12 @@
 
         <Button
             android:id="@+id/Signup"
-            android:layout_width="200dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
-            android:backgroundTint="@color/Black"
-            android:text="Đăng nhập"
+            android:backgroundTint="@color/Blacklogo"
+            android:text="Đăng ký"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
