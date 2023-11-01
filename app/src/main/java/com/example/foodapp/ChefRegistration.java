@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -144,7 +145,6 @@ public class ChefRegistration extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 databaseReference = FirebaseDatabase.getInstance().getReference("User").child(useridd);
-
                                 final HashMap<String , String> hashMap = new HashMap<>();
                                 hashMap.put("Role",role);
                                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -199,7 +199,13 @@ public class ChefRegistration extends AppCompatActivity {
                                            }
                                        });
                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w("a", e.getMessage());
+                                    }
                                 });
+
                             } else {
                                 mDialog.dismiss();
                                 ReusableCodeForAll.ShowAlert(ChefRegistration.this,"Có lỗi xảy ra, vui lòng thử lại sau",task.getException().getMessage());
