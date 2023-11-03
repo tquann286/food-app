@@ -86,6 +86,8 @@ public class ChefRegistration extends AppCompatActivity {
         Emaill = (Button)findViewById(R.id.email);
         Phone = (Button)findViewById(R.id.phone);
 
+        Cpp = (CountryCodePicker)findViewById(R.id.CountryCode);
+
         Statespin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -132,7 +134,7 @@ public class ChefRegistration extends AppCompatActivity {
                 house = houseno.getEditText().getText().toString().trim();
                 Pincode = pincode.getEditText().getText().toString().trim();
 
-                if (!isValid()){
+                if (isValid()){
                     final ProgressDialog mDialog = new ProgressDialog(ChefRegistration.this);
                     mDialog.setCancelable(false);
                     mDialog.setCanceledOnTouchOutside(false);
@@ -145,6 +147,7 @@ public class ChefRegistration extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 databaseReference = FirebaseDatabase.getInstance().getReference("User").child(useridd);
+
                                 final HashMap<String , String> hashMap = new HashMap<>();
                                 hashMap.put("Role",role);
                                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -163,7 +166,7 @@ public class ChefRegistration extends AppCompatActivity {
                                        hashMap1.put("Confirm Password",confpassword);
                                        hashMap1.put("House",house);
 
-                                       firebaseDatabase.getInstance().getReference("Chef").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                       firebaseDatabase.getInstance().getReference("Chef").child(useridd).setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                            @Override
                                            public void onComplete(@NonNull Task<Void> task) {
                                                mDialog.dismiss();
@@ -187,7 +190,6 @@ public class ChefRegistration extends AppCompatActivity {
                                                                    startActivity(b);
                                                                }
                                                            });
-
                                                            AlertDialog Alert = builder.create();
                                                            Alert.show();
                                                        } else {
@@ -289,9 +291,9 @@ public class ChefRegistration extends AppCompatActivity {
             mobileno.setErrorEnabled(true);
             mobileno.setError("Vui lòng nhập");
         }else{
-            if(mobile.length()<10){
+            if(mobile.length()<9){
                 mobileno.setErrorEnabled(true);
-                mobileno.setError("Số điện thoại ít nhất 10 ký tự");
+                mobileno.setError("Số điện thoại ít nhất 9 ký tự");
             }else{
                 isValidmobilenum = true;
             }
