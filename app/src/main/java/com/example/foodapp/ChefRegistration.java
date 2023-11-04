@@ -138,7 +138,7 @@ public class ChefRegistration extends AppCompatActivity {
                     final ProgressDialog mDialog = new ProgressDialog(ChefRegistration.this);
                     mDialog.setCancelable(false);
                     mDialog.setCanceledOnTouchOutside(false);
-                    mDialog.setMessage("Đang đăng ký, vui lòng đợi......");
+                    mDialog.setMessage("Đang đăng ký, vui lòng đợi...");
                     mDialog.show();
 
                     FAuth.createUserWithEmailAndPassword(emailid,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

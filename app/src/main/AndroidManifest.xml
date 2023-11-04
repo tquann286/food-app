@@ -13,6 +13,18 @@
         android:theme="@style/Theme.FoodApp"
         tools:targetApi="31">
         <activity
+            android:name=".DeliverySendOtp"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryFoodPanel_BottomNavigation"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryVerifyPhone"
+            android:exported="false" />
+        <activity
             android:name=".SendOtp"
             android:exported="false" />
         <activity
@@ -62,9 +74,6 @@
             android:exported="false" />
         <activity
             android:name=".ChefLogin"
-            android:exported="false" />
-        <activity
-            android:name=".Cheflogin"
             android:exported="false" />
         <activity
             android:name=".ChooseOne"
