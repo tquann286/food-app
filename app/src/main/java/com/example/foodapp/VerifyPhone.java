@@ -165,6 +165,7 @@ public class VerifyPhone extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            Toast.makeText(VerifyPhone.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(VerifyPhone.this , MainMenu.class);
                             startActivity(intent);
                             finish();

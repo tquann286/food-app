@@ -157,6 +157,7 @@ public class ChefVerifyPhone extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            Toast.makeText(ChefVerifyPhone.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(ChefVerifyPhone.this , MainMenu.class);
                             startActivity(intent);
                             finish();

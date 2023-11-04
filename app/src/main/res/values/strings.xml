@@ -16,45 +16,36 @@
     </string-array>
 
     <string-array name="DishName">
-        <item>Thepla</item>
-        <item>Dal Rice</item>
-        <item>Dhokla</item>
-        <item>Sabji Roti</item>
-        <item>Kadhi Khichdi</item>
-        <item>Puri bhaji</item>
-        <item>Dal Dhokdi</item>
-        <item>Undhiyu</item>
-        <item>Aloo Paratha</item>
-        <item>Patra</item>
-        <item>Khandvi</item>
-        <item>Gulab Jamun</item>
-        <item>SevTomato bhakri</item>
-        <item>Shrikhand</item>
-        <item>Palak Paneer</item>
-        <item>Khulcha</item>
-        <item>Makki di roti</item>
-        <item>Gobi Partha</item>
-        <item>Biryani</item>
-        <item>Rajma</item>
-        <item>Bhindi Fry</item>
-        <item>Dum Biryani</item>
-        <item>Rumali roti</item>
-        <item>Dal Makhni</item>
-        <item>Samosa</item>
-        <item>Kachori</item>
-        <item>Menduwada</item>
-        <item>Pulav</item>
-        <item>Pav Bhaji</item>
-        <item>Misal Pav</item>
-        <item>Mix Vegetable</item>
-        <item>Muffins</item>
-        <item>DalFry JerraRice</item>
-        <item>Bengali sweet</item>
-        <item>Puranpoli</item>
-        <item>Egg Curry</item>
-        <item>Pomfret Fish</item>
-        <item>Egg Bhurji</item>
-        <item>Dum chicken</item>
-        <item>Hyderabadi Chicken Biryni</item>
+        <item>Phở</item>
+        <item>Bánh mì</item>
+        <item>Gỏi cuốn</item>
+        <item>Bún chả</item>
+        <item>Cơm tấm</item>
+        <item>Bánh xèo</item>
+        <item>Mì Quảng</item>
+        <item>Bánh canh</item>
+        <item>Hủ tiếu</item>
+        <item>Bánh bao</item>
+        <item>Bánh mì kẹp thịt</item>
+        <item>Bánh tráng trộn</item>
+        <item>Bánh bột lọc</item>
+        <item>Chả cá Lã Vọng</item>
+        <item>Bánh cuốn</item>
+        <item>Bánh tráng cuốn</item>
+        <item>Cá kho tộ</item>
+        <item>Bún riêu cua</item>
+        <item>Cơm hến</item>
+        <item>Mì vịt tiềm</item>
+        <item>Thịt kho tàu</item>
+        <item>Bánh khọt</item>
+        <item>Bún bò Huế</item>
+        <item>Chả lụa</item>
+        <item>Bánh trung thu</item>
+        <item>Canh chua</item>
+        <item>Gà nướng lá chanh</item>
+        <item>Gỏi cuốn tôm thịt</item>
+        <item>Cơm gà Hải Nam</item>
+        <item>Bánh ít trần</item>
+        <item>Bánh cuốn Thanh Trì</item>
     </string-array>
 </resources>
