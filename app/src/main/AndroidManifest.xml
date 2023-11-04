@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FoodApp"
         tools:targetApi="31">
         <activity
+            android:name=".ChefSendOtp"
+            android:exported="false" />
+        <activity
             android:name=".ChefForgotPassword"
             android:exported="false" />
         <activity
