@@ -13,21 +13,15 @@ import com.example.foodapp.chefFoodPanel.ChefHomeFragment;
 import com.example.foodapp.chefFoodPanel.ChefOrderFragment;
 import com.example.foodapp.chefFoodPanel.ChefPendingOrderFragment;
 import com.example.foodapp.chefFoodPanel.ChefProfileFragment;
-import com.google.android.material.navigation.NavigationBarView;
 
-public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
+public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chef_food_panel_bottom_navigation);
         BottomNavigationView navigationView = findViewById(R.id.chef_bottom_navigation);
-        navigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return true;
-            }
-        });
+        navigationView.setOnNavigationItemSelectedListener(this);
     }
 
     @Override

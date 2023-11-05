@@ -1,23 +1,18 @@
 package com.example.foodapp.chefFoodPanel;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,8 +31,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 import java.util.UUID;
 
@@ -45,13 +40,13 @@ import com.example.foodapp.R;
 
 public class chefPostDish extends AppCompatActivity {
 
+    private ActivityResultLauncher<Intent> galleryLauncher;
     ImageButton imageButton;
     Button post_dish;
     Spinner Dishes;
     TextInputLayout desc,qty,pri;
     String descrption,quantity,price,dishes;
     Uri imageuri;
-    private Uri mcropimageuri;
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseDatabase firebaseDatabase;
@@ -75,6 +70,17 @@ public class chefPostDish extends AppCompatActivity {
         Fauth = FirebaseAuth.getInstance();
         databaseReference = firebaseDatabase.getInstance().getReference("FoodDetails");
 
+        galleryLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+                        if (data != null) {
+                            ((ImageButton) findViewById(R.id.image_upload)).setImageURI(data.getData());
+                            imageuri = data.getData();
+                        }
+                    }
+                });
+
         try {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             dataa = firebaseDatabase.getInstance().getReference("Chef").child(userid);
@@ -90,8 +96,8 @@ public class chefPostDish extends AppCompatActivity {
 
                     imageButton.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View v) {
-//                            onSelectImageclick(v);
+                        public void onClick(View view) {
+                            onSelectImageClick();
                         }
                     });
 
@@ -127,7 +133,7 @@ public class chefPostDish extends AppCompatActivity {
 
         if(imageuri != null) {
             final ProgressDialog progressDialog = new ProgressDialog(chefPostDish.this);
-            progressDialog.setTitle("Đang tải ảnh...");
+            progressDialog.setTitle("Đang thêm món...");
             progressDialog.show();
             RandomUID = UUID.randomUUID().toString();
             ref = storageReference.child(RandomUID);
@@ -143,7 +149,6 @@ public class chefPostDish extends AppCompatActivity {
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-
                                             progressDialog.dismiss();
                                             Toast.makeText(chefPostDish.this,"Thêm món thành công!",Toast.LENGTH_SHORT).show();
                                         }
@@ -201,52 +206,11 @@ public class chefPostDish extends AppCompatActivity {
         return isValid;
     }
 
-    private void startCropImageActivity(Uri imageuri){
-        CropImage.activity(imageuri)
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .setMultiTouchEnabled(true)
-                .start(this);
-    }
 
-    private void onSelectImageclick(View v){
-        CropImage.startPickImageActivity(this);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if(mcropimageuri !=null && grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
-            startCropImageActivity(mcropimageuri);
-        }else{
-            Toast.makeText(this,"Đang hủy! Chưa cấp quyền.",Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    @SuppressLint("NewApi")
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
-        if(requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode== Activity.RESULT_OK){
-            imageuri = CropImage.getPickImageResultUri(this,data);
-            if(CropImage.isReadExternalStoragePermissionsRequired(this,imageuri)){
-                mcropimageuri = imageuri;
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);
-            }else{
-                startCropImageActivity(imageuri);
-            }
-        }
-        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if(resultCode==RESULT_OK){
-                ((ImageButton) findViewById(R.id.image_upload)).setImageURI(result.getUri());
-                Toast.makeText(this,"Cắt ảnh thành công!",Toast.LENGTH_SHORT).show();
-            }else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
-                Toast.makeText(this,"Cắt ảnh thất bại"+result.getError(),Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
+    private void onSelectImageClick() {
+        Intent iGallery = new Intent(Intent.ACTION_PICK);
+        iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galleryLauncher.launch(iGallery);
     }
 
 }

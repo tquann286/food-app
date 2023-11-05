@@ -84,7 +84,6 @@
         <activity
             android:name=".MainMenu"
             android:exported="false" />
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
