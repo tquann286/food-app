@@ -3,6 +3,8 @@ package com.example.foodapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,21 +16,34 @@ import com.example.foodapp.customerFoodPanel.CustomerHomeFragment;
 import com.example.foodapp.customerFoodPanel.CustomerOrdersFragment;
 import com.example.foodapp.customerFoodPanel.CustomerProfileFragment;
 import com.example.foodapp.customerFoodPanel.CustomerTrackFragment;
-import com.google.android.material.navigation.NavigationBarView;
 
-public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
+public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_food_panel_bottom_navigation);
         BottomNavigationView navigationView = findViewById(R.id.bottom_navigation);
-        navigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return true;
+        navigationView.setOnNavigationItemSelectedListener(this);
+
+        String name = getIntent().getStringExtra("PAGE");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (name != null) {
+            if (name.equalsIgnoreCase("Homepage")) {
+                loadCustomerFragment(new CustomerHomeFragment());
+            } else if (name.equalsIgnoreCase("Preparingpage")) {
+                loadCustomerFragment(new CustomerTrackFragment());
+            } else if (name.equalsIgnoreCase("DeliveryOrderpage")) {
+                loadCustomerFragment(new CustomerTrackFragment());
+            } else if (name.equalsIgnoreCase("Thankyoupage")) {
+                loadCustomerFragment(new CustomerHomeFragment());
             }
-        });
+        } else {
+            loadCustomerFragment(new CustomerHomeFragment());
+        }
+
     }
 
     @Override

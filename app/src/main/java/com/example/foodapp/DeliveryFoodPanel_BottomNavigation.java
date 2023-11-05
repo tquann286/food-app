@@ -3,6 +3,8 @@ package com.example.foodapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,8 +21,19 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity implem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_food_panel_bottom_navigation);
         BottomNavigationView navigationView = findViewById(R.id.delivery_bottom_navigation);
-
         navigationView.setOnNavigationItemSelectedListener(this);
+
+        String name = getIntent().getStringExtra("PAGE");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (name != null) {
+            if (name.equalsIgnoreCase("DeliveryOrderpage")) {
+                loadDeliveryFragment(new DeliveryPendingOrderFragment());
+            }
+        } else {
+            loadDeliveryFragment(new DeliveryPendingOrderFragment());
+        }
 
     }
 
