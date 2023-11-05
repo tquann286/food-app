@@ -34,6 +34,7 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
+    implementation ("com.theartofdev.edmodo:android-image-cropper:2.3.1")
     implementation("com.hbb20:ccp:2.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:22.1.2")
