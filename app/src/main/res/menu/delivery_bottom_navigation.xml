@@ -5,9 +5,9 @@
     <item
         android:id="@+id/pendingorders"
         android:icon="@drawable/ic_orders_24"
-        android:title="Pending Orders" />
+        android:title="Đơn hàng chờ" />
     <item
         android:id="@+id/shiporders"
         android:icon="@drawable/ic_baseline_local_shipping_24"
-        android:title="Ship Orders" />
+        android:title="Đơn hàng đã giao" />
 </menu>

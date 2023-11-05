@@ -12,13 +12,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.foodapp.deliveryFoodPanel.DeliveryPendingOrderFragment;
 import com.example.foodapp.deliveryFoodPanel.DeliveryShipOrderFragment;
 
-public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_food_panel_bottom_navigation);
         BottomNavigationView navigationView = findViewById(R.id.delivery_bottom_navigation);
+
         navigationView.setOnNavigationItemSelectedListener(this);
 
     }
@@ -40,7 +41,7 @@ public class DeliveryFoodPanel_BottomNavigation extends AppCompatActivity implem
 
     private boolean loadDeliveryFragment(Fragment fragment) {
         if(fragment != null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerbott,fragment).commit();
             return true;
         }
         return false;

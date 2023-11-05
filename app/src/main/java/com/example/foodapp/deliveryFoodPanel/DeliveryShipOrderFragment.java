@@ -17,7 +17,7 @@ public class DeliveryShipOrderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_deliveryshiporder, null);
-        getActivity().setTitle("Đơn hàng đang giao");
+        getActivity().setTitle("Đơn hàng đã giao");
         return v;
     }
 }
