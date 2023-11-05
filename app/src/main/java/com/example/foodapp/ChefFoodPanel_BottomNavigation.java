@@ -13,9 +13,9 @@ import com.example.foodapp.chefFoodPanel.ChefHomeFragment;
 import com.example.foodapp.chefFoodPanel.ChefOrderFragment;
 import com.example.foodapp.chefFoodPanel.ChefPendingOrderFragment;
 import com.example.foodapp.chefFoodPanel.ChefProfileFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
-public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +45,10 @@ public class ChefFoodPanel_BottomNavigation extends AppCompatActivity implements
         } else if (itemId == R.id.chefProfile) {
             fragment = new ChefProfileFragment();
         }
-        return loadcheffragment(fragment);
+        return loadChefFragment(fragment);
     }
 
-    private boolean loadcheffragment(Fragment fragment) {
+    private boolean loadChefFragment(Fragment fragment) {
 
         if (fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();
