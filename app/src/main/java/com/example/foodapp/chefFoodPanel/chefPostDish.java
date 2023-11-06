@@ -166,7 +166,7 @@ public class chefPostDish extends AppCompatActivity {
                 @Override
                 public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
                     double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploaded "+(int) progress+"%");
+                    progressDialog.setMessage("Đang thêm món "+(int) progress+"%");
                     progressDialog.setCanceledOnTouchOutside(false);
                 }
             });

@@ -1,6 +1,7 @@
 package com.example.foodapp.customerFoodPanel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +61,8 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
                 dataa.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                         Customer custo = snapshot.getValue(Customer.class);
+                        Log.w("A", snapshot.toString());
                         State = custo.getState();
                         City = custo.getCity();
                         Area = custo.getArea();

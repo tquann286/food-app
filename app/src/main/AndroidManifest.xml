@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FoodApp"
         tools:targetApi="31">
         <activity
+            android:name=".chefFoodPanel.UpdateDelete_Dish"
+            android:exported="false" />
+        <activity
             android:name=".chefFoodPanel.chefPostDish"
             android:exported="false" />
         <activity
