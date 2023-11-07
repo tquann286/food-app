@@ -129,7 +129,7 @@ public class UpdateDelete_Dish extends AppCompatActivity {
                         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                firebaseDatabase.getInstance().getReference("FoodDetails").child(State).child(City).child(Area)
+                                firebaseDatabase.getInstance().getReference("FoodDetails")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(ID).removeValue();
                                 AlertDialog.Builder food = new AlertDialog.Builder(UpdateDelete_Dish.this);
                                 food.setMessage("Xoá thành công!");
@@ -156,7 +156,7 @@ public class UpdateDelete_Dish extends AppCompatActivity {
 
                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 progressDialog = new ProgressDialog(UpdateDelete_Dish.this);
-                databaseReference = FirebaseDatabase.getInstance().getReference("FoodDetails").child(State).child(City).child(Area)
+                databaseReference = FirebaseDatabase.getInstance().getReference("FoodDetails")
                         .child(useridd).child(ID);
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -212,7 +212,7 @@ public class UpdateDelete_Dish extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             FoodDetails info = new FoodDetails(dishes,quantity,price,description,String.valueOf(uri),RandomUID,ChefId);
-                            firebaseDatabase.getInstance().getReference("FoodDetails").child(State).child(City).child(Area).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUID)
+                            firebaseDatabase.getInstance().getReference("FoodDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUID)
                                     .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
@@ -286,7 +286,7 @@ public class UpdateDelete_Dish extends AppCompatActivity {
 
         ChefId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FoodDetails info = new FoodDetails(dishes,quantity,price,description,dbUri,ID,ChefId);
-        firebaseDatabase.getInstance().getReference("FoodDetails").child(State).child(City).child(Area)
+        firebaseDatabase.getInstance().getReference("FoodDetails")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(ID)
                 .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
