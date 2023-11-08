@@ -72,26 +72,26 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
         holder.Total.setText("Tổng cộng: " + cart.getTotalprice() + "vnd");
 
         int dishprice = Integer.parseInt(cart.getPrice());
-        int quantity = Integer.parseInt(cart.getDishQuantity());
+        holder.numberPicker.setMinValue(0);
+        holder.numberPicker.setMaxValue(100);
+        holder.numberPicker.setValue(Integer.parseInt(cart.getDishQuantity()));
 
         holder.numberPicker.setOnValueChangedListener(null);
 
-        FirebaseDatabase.getInstance().getReference("FoodDetails").child(cart.getChefId()).child(cart.getDishID()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                FoodDetails food = dataSnapshot.getValue(FoodDetails.class);
+//        FirebaseDatabase.getInstance().getReference("FoodDetails").child(cart.getChefId()).child(cart.getDishID()).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                FoodDetails food = dataSnapshot.getValue(FoodDetails.class);
+//
+//                holder.numberPicker.setMaxValue(Integer.parseInt(food.Quantity));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-                holder.numberPicker.setMinValue(0);
-                holder.numberPicker.setMaxValue(Integer.parseInt(food.Quantity));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        holder.numberPicker.setValue(quantity);
 
         updateTotal(holder);
 
