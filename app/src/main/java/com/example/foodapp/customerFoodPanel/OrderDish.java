@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.widget.ImageView;
@@ -32,6 +33,8 @@ import java.util.HashMap;
 
 public class OrderDish extends AppCompatActivity {
 
+    private final Handler handler = new Handler();
+    private final int DEBOUNCE_DELAY = 500;
     String RandomId, ChefID;
     ImageView imageView;
     NumberPicker numberPicker;
@@ -133,28 +136,85 @@ public class OrderDish extends AppCompatActivity {
                     }
                 });
 
-                numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+                NumberPicker.OnValueChangeListener valueChangeListener = new NumberPicker.OnValueChangeListener() {
                     @Override
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        dataref = FirebaseDatabase.getInstance().getReference("Cart").child("CartItems").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                        dataref.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                Cart cart1= null;
-                                if (dataSnapshot.exists()) {
-                                    int totalcount=0;
-                                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                                        totalcount++;
-                                    }
-                                    int i=0;
-                                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                                        i++;
-                                        if(i==totalcount){
-                                            cart1= snapshot.getValue(Cart.class);
+                        handler.removeCallbacksAndMessages(null); // Remove any pending callbacks
+                        handler.postDelayed(() -> {
+                            dataref = FirebaseDatabase.getInstance().getReference("Cart").child("CartItems").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                            dataref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    Cart cart1= null;
+                                    if (dataSnapshot.exists()) {
+                                        int totalcount=0;
+                                        for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                            totalcount++;
                                         }
-                                    }
+                                        int i=0;
+                                        for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                                            i++;
+                                            if(i==totalcount){
+                                                cart1= snapshot.getValue(Cart.class);
+                                            }
+                                        }
 
-                                    if (ChefID.equals(cart1.getChefId())) {
+                                        if (ChefID.equals(cart1.getChefId())) {
+                                            data = FirebaseDatabase.getInstance().getReference("FoodDetails").child(ChefID).child(RandomId);
+                                            data.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    UpdateDishModel update = dataSnapshot.getValue(UpdateDishModel.class);
+                                                    dishname = update.getDishes();
+                                                    dishprice = Integer.parseInt(update.getPrice());
+
+                                                    int num = newVal;
+                                                    int totalprice = num * dishprice;
+                                                    if (num != 0) {
+                                                        HashMap<String, String> hashMap = new HashMap<>();
+                                                        hashMap.put("DishName", dishname);
+                                                        hashMap.put("DishID", RandomId);
+                                                        hashMap.put("DishQuantity", String.valueOf(num));
+                                                        hashMap.put("Price", String.valueOf(dishprice));
+                                                        hashMap.put("Totalprice", String.valueOf(totalprice));
+                                                        hashMap.put("ChefId", ChefID);
+                                                        custID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                                        reference = FirebaseDatabase.getInstance().getReference("Cart").child("CartItems").child(custID).child(RandomId);
+                                                        reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                Toast.makeText(OrderDish.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                    } else {
+                                                        firebaseDatabase.getInstance().getReference("Cart").child(custID).child(RandomId).removeValue();
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
+                                        } else {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(OrderDish.this);
+                                            builder.setMessage("Bạn không thể thêm các món ăn của nhiều đầu bếp cùng một lúc\nHãy thêm các món của cùng một đầu bếp");
+                                            builder.setCancelable(false);
+                                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+
+                                                    dialog.dismiss();
+                                                    Intent intent = new Intent(OrderDish.this, CustomerFoodPanel_BottomNavigation.class);
+                                                    startActivity(intent);
+                                                    finish();
+
+                                                }
+                                            });
+                                            AlertDialog alert = builder.create();
+                                            alert.show();
+                                        }
+                                    } else {
                                         data = FirebaseDatabase.getInstance().getReference("FoodDetails").child(ChefID).child(RandomId);
                                         data.addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
@@ -162,9 +222,9 @@ public class OrderDish extends AppCompatActivity {
                                                 UpdateDishModel update = dataSnapshot.getValue(UpdateDishModel.class);
                                                 dishname = update.getDishes();
                                                 dishprice = Integer.parseInt(update.getPrice());
-
                                                 int num = newVal;
                                                 int totalprice = num * dishprice;
+
                                                 if (num != 0) {
                                                     HashMap<String, String> hashMap = new HashMap<>();
                                                     hashMap.put("DishName", dishname);
@@ -178,6 +238,7 @@ public class OrderDish extends AppCompatActivity {
                                                     reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
+
                                                             Toast.makeText(OrderDish.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
@@ -191,72 +252,19 @@ public class OrderDish extends AppCompatActivity {
 
                                             }
                                         });
-                                    } else {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(OrderDish.this);
-                                        builder.setMessage("Bạn không thể thêm các món ăn của nhiều đầu bếp cùng một lúc\nHãy thêm các món của cùng một đầu bếp");
-                                        builder.setCancelable(false);
-                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-
-                                                dialog.dismiss();
-                                                Intent intent = new Intent(OrderDish.this, CustomerFoodPanel_BottomNavigation.class);
-                                                startActivity(intent);
-                                                finish();
-
-                                            }
-                                        });
-                                        AlertDialog alert = builder.create();
-                                        alert.show();
                                     }
-                                } else {
-                                    data = FirebaseDatabase.getInstance().getReference("FoodDetails").child(ChefID).child(RandomId);
-                                    data.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            UpdateDishModel update = dataSnapshot.getValue(UpdateDishModel.class);
-                                            dishname = update.getDishes();
-                                            dishprice = Integer.parseInt(update.getPrice());
-                                            int num = newVal;
-                                            int totalprice = num * dishprice;
-
-                                            if (num != 0) {
-                                                HashMap<String, String> hashMap = new HashMap<>();
-                                                hashMap.put("DishName", dishname);
-                                                hashMap.put("DishID", RandomId);
-                                                hashMap.put("DishQuantity", String.valueOf(num));
-                                                hashMap.put("Price", String.valueOf(dishprice));
-                                                hashMap.put("Totalprice", String.valueOf(totalprice));
-                                                hashMap.put("ChefId", ChefID);
-                                                custID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                                reference = FirebaseDatabase.getInstance().getReference("Cart").child("CartItems").child(custID).child(RandomId);
-                                                reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void aVoid) {
-
-                                                        Toast.makeText(OrderDish.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                });
-                                            } else {
-                                                firebaseDatabase.getInstance().getReference("Cart").child(custID).child(RandomId).removeValue();
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                                }
+                            });
+                        }, DEBOUNCE_DELAY);
                     }
-                });
+                };
+
+                numberPicker.setOnValueChangedListener(valueChangeListener);
 
             }
 
