@@ -70,13 +70,13 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
         holder.Price.setText("Giá: " + cart.getPrice() + "vnd");
         holder.Qty.setText("× " + cart.getDishQuantity());
         holder.Total.setText("Tổng cộng: " + cart.getTotalprice() + "vnd");
+        holder.numberPicker.setOnValueChangedListener(null);
 
         int dishprice = Integer.parseInt(cart.getPrice());
         holder.numberPicker.setMinValue(0);
         holder.numberPicker.setMaxValue(100);
         holder.numberPicker.setValue(Integer.parseInt(cart.getDishQuantity()));
 
-        holder.numberPicker.setOnValueChangedListener(null);
 
 //        FirebaseDatabase.getInstance().getReference("FoodDetails").child(cart.getChefId()).child(cart.getDishID()).addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override

@@ -317,7 +317,7 @@ public class CustomerCartFragment extends Fragment {
                                                 AlertDialog alert = builder.create();
                                                 alert.show();
                                             } else {
-                                                ReusableCodeForAll.ShowAlert(getContext(), "Error", "It seems you have already placed the order, So you cannot place another order until the delivery of first order");
+                                                ReusableCodeForAll.ShowAlert(getContext(), "Lỗi", "Bạn không th đặt đơn mới, nếu chưa được xác nhận đơn trước!");
                                             }
                                         }
 
