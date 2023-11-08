@@ -136,9 +136,7 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
     private void updateTotal(@NonNull ViewHolder holder) {
         total = 0;
         for (Cart cart : cartModellist) {
-            int dishprice = Integer.parseInt(cart.getPrice());
-            int quantity = holder.numberPicker.getValue();
-            total += dishprice * quantity;
+            total += Integer.parseInt(cart.getTotalprice());
         }
 
         CustomerCartFragment.grandt.setText("Tổng tiền: " + total + "vnd");
