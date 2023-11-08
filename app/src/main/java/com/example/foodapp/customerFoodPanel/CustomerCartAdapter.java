@@ -1,6 +1,8 @@
 package com.example.foodapp.customerFoodPanel;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +12,10 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.MainMenu;
 import com.example.foodapp.R;
 import com.example.foodapp.chefFoodPanel.FoodDetails;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,7 +83,6 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
 
                 holder.numberPicker.setMinValue(0);
                 holder.numberPicker.setMaxValue(Integer.parseInt(food.Quantity));
-                holder.numberPicker.setValue(quantity);
             }
 
             @Override
@@ -87,6 +90,8 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
 
             }
         });
+
+        holder.numberPicker.setValue(quantity);
 
         updateTotal(holder);
 
@@ -112,11 +117,29 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
                                 .child(cart.getDishID())
                                 .setValue(hashMap);
                     } else {
-                        FirebaseDatabase.getInstance().getReference("Cart")
-                                .child("CartItems")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .child(cart.getDishID())
-                                .removeValue();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(mcontext);
+                        builder.setMessage("Bạn có chắc xoá sản phẩm khỏi giỏ hàng ?");
+                        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                FirebaseDatabase.getInstance().getReference("Cart")
+                                        .child("CartItems")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .child(cart.getDishID())
+                                        .removeValue();
+
+                            }
+                        });
+                        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                holder.numberPicker.setValue(oldVal);
+                            }
+                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+
                     }
                 }, DEBOUNCE_DELAY);
             }
