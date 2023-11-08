@@ -55,15 +55,11 @@
                         android:layout_height="wrap_content"
                         android:gravity="right">
 
-<!--                        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton-->
-<!--                            android:id="@+id/number_btn"-->
-<!--                            android:layout_width="75dp"-->
-<!--                            android:layout_height="25dp"-->
-<!--                            android:layout_gravity="bottom"-->
-<!--                            app:backgroundDrawable="@drawable/elegant_btnshape"-->
-<!--                            android:layout_marginRight="15dp"-->
-<!--                            app:backGroundColor="@drawable/btnblueish"-->
-<!--                            tools:ignore="MissingClass" />-->
+                        <NumberPicker
+                            android:id="@+id/number_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

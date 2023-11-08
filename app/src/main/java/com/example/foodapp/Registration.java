@@ -155,17 +155,17 @@ public class Registration extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
 
                                         HashMap<String , String> hashMap1 = new HashMap<>();
-                                        hashMap1.put("Mobile No",mobile);
-                                        hashMap1.put("First Name",fname);
-                                        hashMap1.put("Last Name",lname);
+                                        hashMap1.put("MobileNo",mobile);
+                                        hashMap1.put("FirstName",fname);
+                                        hashMap1.put("LastName",lname);
                                         hashMap1.put("EmailId",emailid);
                                         hashMap1.put("City",cityy);
                                         hashMap1.put("Area",Area);
                                         hashMap1.put("Password",password);
                                         hashMap1.put("Pincode",Pincode);
                                         hashMap1.put("State",statee);
-                                        hashMap1.put("Confirm Password",confpassword);
-                                        hashMap1.put("Local Address",Localaddress);
+                                        hashMap1.put("ConfirmPassword",confpassword);
+                                        hashMap1.put("LocalAddress",Localaddress);
 
                                         firebaseDatabase.getInstance().getReference("Customer")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
