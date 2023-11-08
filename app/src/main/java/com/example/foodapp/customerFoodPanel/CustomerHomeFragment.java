@@ -1,9 +1,11 @@
 package com.example.foodapp.customerFoodPanel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.foodapp.MainMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,6 +46,7 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_customerhome, null);
         getActivity().setTitle("Trang chủ");
+        setHasOptionsMenu(true);
         recyclerView = v.findViewById(R.id.recycle_menu);
         recyclerView.setHasFixedSize(true);
         Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.move);
@@ -115,5 +119,23 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int idd = item.getItemId();
+        if(idd == R.id.LOGOUT){
+            Logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void Logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getActivity(), MainMenu.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
