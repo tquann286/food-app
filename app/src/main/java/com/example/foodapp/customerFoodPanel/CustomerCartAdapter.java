@@ -71,14 +71,15 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
         int quantity = Integer.parseInt(cart.getDishQuantity());
 
         holder.numberPicker.setOnValueChangedListener(null);
-        holder.numberPicker.setMinValue(0);
 
         FirebaseDatabase.getInstance().getReference("FoodDetails").child(cart.getChefId()).child(cart.getDishID()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 FoodDetails food = dataSnapshot.getValue(FoodDetails.class);
 
-                Log.w("AAAAAAAAA", food.Quantity);
+                holder.numberPicker.setMinValue(0);
+                holder.numberPicker.setMaxValue(Integer.parseInt(food.Quantity));
+                holder.numberPicker.setValue(quantity);
             }
 
             @Override
@@ -86,8 +87,6 @@ public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapte
 
             }
         });
-
-        holder.numberPicker.setValue(quantity);
 
         updateTotal(holder);
 
