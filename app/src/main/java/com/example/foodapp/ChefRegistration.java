@@ -154,16 +154,16 @@ public class ChefRegistration extends AppCompatActivity {
                                    @Override
                                    public void onComplete(@NonNull Task<Void> task) {
                                        HashMap<String , String> hashMap1 = new HashMap<>();
-                                       hashMap1.put("Mobile No",mobile);
-                                       hashMap1.put("First Name",fname);
-                                       hashMap1.put("Last Name",lname);
-                                       hashMap1.put("EmailId",emailid);
+                                       hashMap1.put("Mobile",mobile);
+                                       hashMap1.put("Fname",fname);
+                                       hashMap1.put("Lname",lname);
+                                       hashMap1.put("Emailid",emailid);
                                        hashMap1.put("City",cityy);
                                        hashMap1.put("Area",Area);
                                        hashMap1.put("Password",password);
-                                       hashMap1.put("Pincode",Pincode);
+                                       hashMap1.put("Postcode",Pincode);
                                        hashMap1.put("State",statee);
-                                       hashMap1.put("Confirm Password",confpassword);
+                                       hashMap1.put("ConfirmPassword",confpassword);
                                        hashMap1.put("House",house);
 
                                        firebaseDatabase.getInstance().getReference("Chef").child(useridd).setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
