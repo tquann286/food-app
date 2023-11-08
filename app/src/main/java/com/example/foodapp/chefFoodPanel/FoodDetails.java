@@ -2,7 +2,7 @@ package com.example.foodapp.chefFoodPanel;
 
 public class FoodDetails {
 
-    public String Dishes,Quantity,Price,Description,ImageURL,RandomUID,Chefid;
+    public String Dishes,Quantity,Price,Description,ImageURL,RandomUID,ChefId;
 
     public FoodDetails(String dishes, String quantity, String price, String description, String imageURL, String randomUID, String chefid) {
         Dishes = dishes;
@@ -11,7 +11,7 @@ public class FoodDetails {
         Description = description;
         ImageURL = imageURL;
         RandomUID = randomUID;
-        Chefid = chefid;
+        ChefId = chefid;
     }
 
 }

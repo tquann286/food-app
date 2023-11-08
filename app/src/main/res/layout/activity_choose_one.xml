@@ -6,10 +6,11 @@
     android:id="@+id/back3"
     android:layout_height="match_parent"
     tools:context=".ChooseOne">
+
     <LinearLayout
         android:id="@+id/linearlayout"
-        android:layout_width="265dp"
-        android:layout_height="330dp"
+        android:layout_width="263dp"
+        android:layout_height="256dp"
         android:background="@drawable/background_shape"
         android:orientation="vertical"
         android:padding="15dp"
@@ -17,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintVertical_bias="0.545">
 
         <TextView
             android:id="@+id/textView"
@@ -63,7 +64,8 @@
             android:backgroundTint="#FF5722"
             android:text="Người giao hàng"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

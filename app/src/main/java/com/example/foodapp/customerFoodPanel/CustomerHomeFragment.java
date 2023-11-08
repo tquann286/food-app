@@ -85,11 +85,6 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
     }
 
     @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.logout,menu);
-    }
-
-    @Override
     public void onRefresh() {
         customerMenu();
     }
@@ -119,6 +114,11 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
             }
         });
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.logout,menu);
     }
 
     @Override
