@@ -33,7 +33,6 @@ public class ChefForgotPassword extends AppCompatActivity {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final ProgressDialog mDialog = new ProgressDialog(ChefForgotPassword.this);
                 mDialog.setCancelable(false);
                 mDialog.setCanceledOnTouchOutside(false);
