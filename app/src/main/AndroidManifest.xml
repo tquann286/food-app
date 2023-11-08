@@ -13,6 +13,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".customerFoodPanel.CustomerForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".customerFoodPanel.CustomerPassword"
+            android:exported="false" />
+        <activity
             android:name=".chefFoodPanel.UpdateDelete_Dish"
             android:exported="false" />
         <activity
@@ -87,13 +93,14 @@
         <activity
             android:name=".MainMenu"
             android:exported="false" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
