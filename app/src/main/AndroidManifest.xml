@@ -22,19 +22,10 @@
             android:name=".chefFoodPanel.Chef_order_dishes"
             android:exported="false" />
         <activity
-            android:name=".chef_orders"
-            android:exported="false" />
-        <activity
             android:name=".chefFoodPanel.ChefOrdertobePrepareView"
             android:exported="false" />
         <activity
-            android:name=".chefFoodPanel.ChefPreparedOrder"
-            android:exported="false" />
-        <activity
             android:name=".chefFoodPanel.ChefOrderTobePrepared"
-            android:exported="false" />
-        <activity
-            android:name=".customerFoodPanel.CustomerPhoneSendOTP"
             android:exported="false" />
         <activity
             android:name=".customerFoodPanel.CustomerPhoneNumber"

@@ -15,17 +15,16 @@ import com.example.foodapp.R;
 
 public class ChefOrderFragment extends Fragment {
 
-    TextView OrdertobePrepare, Preparedorders;
+    TextView OrdertobePrepare;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_chef_orders,null);
-        getActivity().setTitle("Đơn hàng");
+        getActivity().setTitle("Lịch sử");
 
         OrdertobePrepare=(TextView)v.findViewById(R.id.ordertobe);
-        Preparedorders=(TextView)v.findViewById(R.id.prepareorder);
 
         OrdertobePrepare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +34,6 @@ public class ChefOrderFragment extends Fragment {
             }
         });
 
-        Preparedorders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(),ChefPreparedOrder.class);
-                startActivity(intent);
-            }
-        });
 
         return v;
     }

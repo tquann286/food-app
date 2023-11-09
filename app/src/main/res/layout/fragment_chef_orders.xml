@@ -12,8 +12,8 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/ic_restaurant_menu_black_24dp"
-        android:text="Đơn hàng đang chờ"
+        android:drawableLeft="@drawable/ic_food_tray"
+        android:text="Đơn đã xác nhận"
         android:textColor="@color/Blacklogo"
         android:textSize="21dp" />
 
@@ -22,27 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/ordertobe"
-        android:background="@color/lightgray" />
-
-    <TextView
-        android:id="@+id/prepareorder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hr"
-        android:layout_marginLeft="12dp"
-        android:drawableLeft="@drawable/ic_food_tray"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:drawablePadding="8dp"
-        android:text="Đơn đã xác nhận"
-        android:textColor="@color/Blacklogo"
-        android:textSize="21dp" />
-
-    <TableRow
-        android:id="@+id/hr1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/prepareorder"
         android:background="@color/lightgray" />
 
 
