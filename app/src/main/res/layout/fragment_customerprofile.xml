@@ -27,7 +27,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:text="Myaccount"
+                android:text="Thông tin cá nhân"
                 android:textAllCaps="true"
                 android:textColor="#FA3E03"
                 android:textSize="17sp" />
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="FirstName"
+                        android:text="Tên"
                         android:drawableLeft="@drawable/ic_person_black_24dp"
                         android:drawablePadding="10dp"
                         android:textColor="@color/Blacklogo"
@@ -106,7 +106,7 @@
                         android:maxWidth="300dp"
                         android:drawableLeft="@drawable/ic_person_black_24dp"
                         android:drawablePadding="10dp"
-                        android:text="LastName"
+                        android:text="Họ"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -162,7 +162,7 @@
                         android:drawablePadding="10dp"
                         android:layout_marginBottom="10dp"
                         android:maxWidth="300dp"
-                        android:text="Mobile no"
+                        android:text="Số điện thoại"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -277,7 +277,7 @@
                         android:maxWidth="300dp"
                         android:drawableLeft="@drawable/ic_location_on_black_24dp"
                         android:drawablePadding="10dp"
-                        android:text="Address"
+                        android:text="Địa chỉ"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -327,7 +327,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:maxWidth="300dp"
-                        android:text="State"
+                        android:text="Tỉnh"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -377,7 +377,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:maxWidth="300dp"
-                        android:text="City"
+                        android:text="Thành phố"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -428,7 +428,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:maxWidth="300dp"
-                        android:text="Area"
+                        android:text="Khu vực"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -507,7 +507,7 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginBottom="17dp"
                     android:background="@drawable/btnred"
-                    android:text="Update"
+                    android:text="Cập nhật"
                     android:textColor="@color/white" />
 
             </androidx.cardview.widget.CardView>
@@ -519,7 +519,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:text="Account Actions"
+                android:text="Tùy chọn"
                 android:textAllCaps="true"
                 android:textColor="#FA3E03"
                 android:textSize="17sp" />
@@ -547,7 +547,7 @@
                         android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
                         android:drawablePadding="10dp"
                         android:maxWidth="300dp"
-                        android:text="Log Out"
+                        android:text="Đăng xuất"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 

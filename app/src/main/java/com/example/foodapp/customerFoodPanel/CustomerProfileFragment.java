@@ -219,8 +219,8 @@ public class CustomerProfileFragment extends Fragment {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Are you sure you want to Logout ?");
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                builder.setMessage("Bạn có chắc chắn muốn thoát không?");
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -232,7 +232,7 @@ public class CustomerProfileFragment extends Fragment {
 
                     }
                 });
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
