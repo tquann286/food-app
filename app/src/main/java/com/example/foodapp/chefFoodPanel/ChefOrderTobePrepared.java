@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.foodapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,68 @@ public class ChefOrderTobePrepared extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chef_ordertobeprepared);
+        setContentView(R.layout.activity_chef_order_tobe_prepared);
+
+        recyclerView = findViewById(R.id.Recycle_orderstobeprepared);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(ChefOrderTobePrepared.this));
+        chefWaitingOrders1List = new ArrayList<>();
+        swipeRefreshLayout = findViewById(R.id.Swipe1);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark, R.color.green);
+        adapter = new ChefOrderTobePreparedAdapter(ChefOrderTobePrepared.this, chefWaitingOrders1List);
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                chefWaitingOrders1List.clear();
+                recyclerView = findViewById(R.id.Recycle_orderstobeprepared);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(ChefOrderTobePrepared.this));
+                chefWaitingOrders1List = new ArrayList<>();
+                chefOrdersTobePrepare();
+            }
+        });
+        chefOrdersTobePrepare();
+        // Đổi waiting thành final
+    }
+
+    private void chefOrdersTobePrepare() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("ChefFinalOrders").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    chefWaitingOrders1List.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        DatabaseReference data = FirebaseDatabase.getInstance().getReference("ChefFinalOrders").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(snapshot.getKey()).child("OtherInformation");
+                        data.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                ChefWaitingOrders1 chefWaitingOrders1 = dataSnapshot.getValue(ChefWaitingOrders1.class);
+                                Log.w("AAAA", chefWaitingOrders1.getGrandTotalPrice());
+                                chefWaitingOrders1List.add(chefWaitingOrders1);
+                                adapter = new ChefOrderTobePreparedAdapter(ChefOrderTobePrepared.this, chefWaitingOrders1List);
+                                recyclerView.setAdapter(adapter);
+                                swipeRefreshLayout.setRefreshing(false);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                    }
+                } else {
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
