@@ -13,6 +13,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".customerFoodPanel.PendingOrders"
+            android:exported="false" />
+        <activity
+            android:name=".customerFoodPanel.CustomerPhoneSendOTP"
+            android:exported="false" />
+        <activity
             android:name=".chefFoodPanel.Chef_order_dishes"
             android:exported="false" />
         <activity

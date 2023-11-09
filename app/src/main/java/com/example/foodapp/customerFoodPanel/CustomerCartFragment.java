@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -317,6 +318,7 @@ public class CustomerCartFragment extends Fragment {
                                                 AlertDialog alert = builder.create();
                                                 alert.show();
                                             } else {
+                                                Log.d("AAAAAAAA",ss);
                                                 ReusableCodeForAll.ShowAlert(getContext(), "Lỗi", "Bạn không thể đặt đơn mới, nếu chưa được xác nhận đơn trước!");
                                             }
                                         }
