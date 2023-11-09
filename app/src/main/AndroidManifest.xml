@@ -43,18 +43,6 @@
             android:name=".chefFoodPanel.chefPostDish"
             android:exported="false" />
         <activity
-            android:name=".DeliverySendOtp"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryForgotPassword"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryFoodPanel_BottomNavigation"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryVerifyPhone"
-            android:exported="false" />
-        <activity
             android:name=".SendOtp"
             android:exported="false" />
         <activity
@@ -77,15 +65,6 @@
             android:exported="false" />
         <activity
             android:name=".ChefVerifyPhone"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryRegistration"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryLoginPhone"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryLogin"
             android:exported="false" />
         <activity
             android:name=".Registration"
