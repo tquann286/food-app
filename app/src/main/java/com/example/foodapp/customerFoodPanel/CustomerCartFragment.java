@@ -317,7 +317,7 @@ public class CustomerCartFragment extends Fragment {
                                                 AlertDialog alert = builder.create();
                                                 alert.show();
                                             } else {
-                                                ReusableCodeForAll.ShowAlert(getContext(), "Lỗi", "Bạn không th đặt đơn mới, nếu chưa được xác nhận đơn trước!");
+                                                ReusableCodeForAll.ShowAlert(getContext(), "Lỗi", "Bạn không thể đặt đơn mới, nếu chưa được xác nhận đơn trước!");
                                             }
                                         }
 
