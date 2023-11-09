@@ -140,12 +140,12 @@ public class CustomerPhoneSendOTP extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(CustomerPhoneSendOTP.this, "phone number updated", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(CustomerPhoneSendOTP.this, "This 2: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CustomerPhoneSendOTP.this, "Lỗi 2: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 } else {
-                    Toast.makeText(CustomerPhoneSendOTP.this, "This 3: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CustomerPhoneSendOTP.this, "Lỗi 3: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -157,12 +157,12 @@ public class CustomerPhoneSendOTP extends AppCompatActivity {
                     @Override
                     public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(s, forceResendingToken);
-                        Toast.makeText(CustomerPhoneSendOTP.this, "sent", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CustomerPhoneSendOTP.this, "Đã gửi", Toast.LENGTH_SHORT).show();
                         verificationId = s;
                     }
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                        Toast.makeText(CustomerPhoneSendOTP.this, "Receive", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CustomerPhoneSendOTP.this, "Nhận", Toast.LENGTH_SHORT).show();
 
                         String code = phoneAuthCredential.getSmsCode();
                         if (code != null) {
@@ -173,7 +173,7 @@ public class CustomerPhoneSendOTP extends AppCompatActivity {
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                        Toast.makeText(CustomerPhoneSendOTP.this, "This 1:" + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(CustomerPhoneSendOTP.this, "Lỗi 1:" + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
         );
