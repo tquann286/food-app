@@ -123,7 +123,7 @@ public class ChefPendingOrdersAdapter extends RecyclerView.Adapter<ChefPendingOr
                                                 DatabaseReference dataa = FirebaseDatabase.getInstance().getReference("ChefPendingOrders").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(random).child("OtherInformation");
                                                 dataa.addListenerForSingleValueEvent(new ValueEventListener() {
                                                     @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                         ChefPendingOrders1 chefPendingOrders1 = dataSnapshot.getValue(ChefPendingOrders1.class);
                                                         HashMap<String, String> hashMap3 = new HashMap<>();
                                                         hashMap3.put("Address", chefPendingOrders1.getAddress());
