@@ -19,6 +19,24 @@
             android:name=".customerFoodPanel.CustomerPhoneSendOTP"
             android:exported="false" />
         <activity
+            android:name=".chefFoodPanel.Chef_order_dishes"
+            android:exported="false" />
+        <activity
+            android:name=".chef_orders"
+            android:exported="false" />
+        <activity
+            android:name=".chefFoodPanel.ChefOrdertobePrepareView"
+            android:exported="false" />
+        <activity
+            android:name=".chefFoodPanel.ChefPreparedOrder"
+            android:exported="false" />
+        <activity
+            android:name=".chefFoodPanel.ChefOrderTobePrepared"
+            android:exported="false" />
+        <activity
+            android:name=".customerFoodPanel.CustomerPhoneSendOTP"
+            android:exported="false" />
+        <activity
             android:name=".customerFoodPanel.CustomerPhoneNumber"
             android:exported="false" />
         <activity
@@ -35,18 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".chefFoodPanel.chefPostDish"
-            android:exported="false" />
-        <activity
-            android:name=".DeliverySendOtp"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryForgotPassword"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryFoodPanel_BottomNavigation"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryVerifyPhone"
             android:exported="false" />
         <activity
             android:name=".SendOtp"
@@ -71,15 +77,6 @@
             android:exported="false" />
         <activity
             android:name=".ChefVerifyPhone"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryRegistration"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryLoginPhone"
-            android:exported="false" />
-        <activity
-            android:name=".DeliveryLogin"
             android:exported="false" />
         <activity
             android:name=".Registration"
