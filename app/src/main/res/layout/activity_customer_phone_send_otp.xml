@@ -15,7 +15,7 @@
         android:layout_marginLeft="100dp"
         android:inputType="number"
         android:layout_marginTop="15dp"
-        android:hint="Phone Number"
+        android:hint="Code"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -27,7 +27,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:text="My Account"
+                android:text="Myaccount"
                 android:textAllCaps="true"
                 android:textColor="#FA3E03"
                 android:textSize="17sp" />
@@ -66,12 +66,13 @@
                         <EditText
                             android:id="@+id/fnamee"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="text"
                             android:text="fname"
                             android:textSize="17sp" />
+
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -117,7 +118,7 @@
                         <EditText
                             android:id="@+id/lnamee"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="text"
@@ -174,7 +175,7 @@
                         <TextView
                             android:id="@+id/mobilenumber"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="number"
@@ -234,7 +235,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="textEmailAddress"
-                            android:text=""
+                            android:text="email"
                             android:textSize="17sp" />
 
                     </LinearLayout>
@@ -246,39 +247,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/lightgray" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:id="@+id/passwordlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/Passwordd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
-                        android:drawableLeft="@drawable/ic_lock_black_24dp"
-                        android:drawablePadding="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Password"
-                        android:textColor="@color/Blacklogo"
-                        android:textSize="16dp" />
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
             <TableRow
                 android:id="@+id/hr3"
@@ -321,7 +289,7 @@
                         <EditText
                             android:id="@+id/address"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="textMultiLine"
@@ -371,7 +339,7 @@
                         <Spinner
                             android:id="@+id/statee"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="10dp"
@@ -422,7 +390,7 @@
                         <Spinner
                             android:id="@+id/cityy"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="10dp"
@@ -460,7 +428,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:maxWidth="300dp"
-                        android:text="Suburban"
+                        android:text="Area"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -470,17 +438,52 @@
                         android:gravity="right">
 
 
-                        <Spinner
-                            android:id="@+id/sub"
+                        <EditText
+                            android:id="@+id/area"
                             android:layout_width="wrap_content"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="10dp"
+                            android:text="Area"
                             android:scrollbarSize="17sp" />
 
                     </LinearLayout>
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/passwordlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/Passwordd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Password"
+                        android:textColor="@color/Blacklogo"
+                        android:textSize="16dp" />
+
+
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <TableRow
@@ -497,7 +500,7 @@
                 <Button
                     android:id="@+id/update"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="17dp"
@@ -529,7 +532,7 @@
                 <LinearLayout
                     android:id="@+id/logout_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="center_vertical"
