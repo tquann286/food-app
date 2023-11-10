@@ -43,7 +43,7 @@ import java.util.Map;
 public class CustomerProfileFragment extends Fragment {
 
     EditText firstname, lastname, address;
-    Spinner State, City, Suburban;
+    Spinner State, City;
     TextView mobileno, Email;
     EditText Area;
     Button Update;
