@@ -33,6 +33,7 @@ public class CustomerPhoneNumber extends AppCompatActivity {
                 String phonenumber= cpp.getSelectedCountryCodeWithPlus() + number;
                 Intent intent=new Intent(CustomerPhoneNumber.this,CustomerPhoneSendOTP.class);
                 intent.putExtra("phonenumber",phonenumber);
+                intent.putExtra("number",number);
                 startActivity(intent);
                 finish();
             }
