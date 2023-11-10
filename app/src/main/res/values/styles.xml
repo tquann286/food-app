@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/darkgray</item>
     </style>
 
+    <!-- Customization for Material Components -->
+    <style name="AppTheme.Material" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/yourSelectedColor</item>
+        <item name="colorPrimaryDark">@color/Black</item>
+        <item name="colorAccent">@color/darkgray</item>
+    </style>
+
     <style name="AppThemeNoActionbar" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

@@ -248,6 +248,39 @@
                 android:layout_height="1dp"
                 android:background="@color/lightgray" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:id="@+id/passwordlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/Passwordd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Password"
+                        android:textColor="@color/Blacklogo"
+                        android:textSize="16dp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <TableRow
                 android:id="@+id/hr3"
                 android:layout_width="match_parent"
@@ -450,40 +483,6 @@
 
                     </LinearLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:id="@+id/passwordlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/Passwordd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
-                        android:drawableLeft="@drawable/ic_lock_black_24dp"
-                        android:drawablePadding="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Password"
-                        android:textColor="@color/Blacklogo"
-                        android:textSize="16dp" />
-
-
-                </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
             <TableRow

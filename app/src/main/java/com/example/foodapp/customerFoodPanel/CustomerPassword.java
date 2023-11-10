@@ -33,6 +33,7 @@ public class CustomerPassword extends AppCompatActivity {
     TextView forgot;
     String cur, ne, conf, email, password;
     DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

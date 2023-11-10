@@ -40,7 +40,7 @@ public class CustomerForgotPassword extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(CustomerForgotPassword.this);
-                            builder.setMessage("Password has been sent to your Email");
+                            builder.setMessage("Hãy kiểm tra email của bạn.");
                             builder.setCancelable(false);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
@@ -56,7 +56,7 @@ public class CustomerForgotPassword extends AppCompatActivity {
                             alert.show();
                         } else {
 
-                            ReusableCodeForAll.ShowAlert(CustomerForgotPassword.this,"Error",task.getException().getMessage());
+                            ReusableCodeForAll.ShowAlert(CustomerForgotPassword.this,"Lỗi",task.getException().getMessage());
                         }
                     }
                 });
