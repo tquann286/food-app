@@ -24,32 +24,12 @@
         android:visibility="invisible" />
 
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/addresstrack"
-        android:layout_marginTop="5dp"
-        android:background="@color/white"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center_vertical"
-        android:inputType="textMultiLine"
-        android:maxWidth="300dp"
-        android:paddingLeft="15dp"
-        android:paddingTop="8dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="8dp"
-        android:text="Tình trạng"
-        android:textAllCaps="false"
-        android:textColor="@color/Red"
-        android:textSize="20sp" />
-
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/status"
+        android:layout_below="@id/addresstrack"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"

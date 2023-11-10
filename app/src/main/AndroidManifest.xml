@@ -13,6 +13,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".customerFoodPanel.CustomerPaymentOrderView"
+            android:exported="false" />
+        <activity
             android:name=".customerFoodPanel.PendingOrders"
             android:exported="false" />
         <activity
@@ -26,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".chefFoodPanel.ChefOrderTobePrepared"
+            android:exported="false" />
+        <activity
+            android:name=".customerFoodPanel.PayableOrders"
             android:exported="false" />
         <activity
             android:name=".customerFoodPanel.CustomerPhoneNumber"

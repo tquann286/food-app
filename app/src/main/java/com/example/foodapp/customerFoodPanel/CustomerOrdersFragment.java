@@ -15,7 +15,7 @@ import com.example.foodapp.R;
 
 public class CustomerOrdersFragment extends Fragment {
 
-    TextView Pendingorder;
+    TextView Pendingorder, Payableorder;
 
     @Nullable
     @Override
@@ -24,6 +24,7 @@ public class CustomerOrdersFragment extends Fragment {
         getActivity().setTitle("Đơn hàng");
 
         Pendingorder = (TextView) v.findViewById(R.id.pendingorder);
+        Payableorder = (TextView) v.findViewById(R.id.payableorder);
 
 
         Pendingorder.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,15 @@ public class CustomerOrdersFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Payableorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), PayableOrders.class);
+                startActivity(i);
+            }
+        });
+
         return v;
     }
 }

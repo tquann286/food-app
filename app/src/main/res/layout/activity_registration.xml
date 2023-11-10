@@ -273,7 +273,7 @@
                     android:drawableLeft="@drawable/phonewhite"
                     android:drawablePadding="5dp"
                     android:padding="8dp"
-                    android:text="Phone"
+                    android:text="Sđt"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 

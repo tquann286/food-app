@@ -27,6 +27,27 @@
         android:layout_below="@id/pendingorder"
         android:background="@color/lightgray" />
 
+    <TextView
+        android:id="@+id/payableorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:drawableLeft="@drawable/ic_payment_black_24dp"
+        android:drawablePadding="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Lịch sử mua hàng"
+        android:textColor="@color/Blacklogo"
+        android:textSize="21dp" />
+
+    <TableRow
+        android:id="@+id/hr1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/payableorder"
+        android:background="@color/lightgray" />
+
 
 
 

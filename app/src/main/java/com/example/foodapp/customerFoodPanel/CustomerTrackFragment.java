@@ -31,32 +31,34 @@ public class CustomerTrackFragment extends Fragment {
     private List<CustomerFinalOrders> customerFinalOrdersList;
     private CustomerTrackAdapter adapter;
     DatabaseReference databaseReference;
-    TextView grandtotal, Address,Status;
+    TextView grandtotal, Address;
     LinearLayout total;
+    Integer grand;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_customertrack, null);
-        getActivity().setTitle("Lịch sử đơn hàng");
+        getActivity().setTitle("Tổng tiền đã mua");
 
         recyclerView = v.findViewById(R.id.recyclefinalorders);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         grandtotal = v.findViewById(R.id.Rs);
         Address = v.findViewById(R.id.addresstrack);
-        Status=v.findViewById(R.id.status);
         total = v.findViewById(R.id.btnn);
         customerFinalOrdersList = new ArrayList<>();
         CustomerTrackOrder();
         return v;
     }
     private void CustomerTrackOrder() {
-
         databaseReference = FirebaseDatabase.getInstance().getReference("CustomerFinalOrders").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 customerFinalOrdersList.clear();
+
+                grand = 0;
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DatabaseReference data = FirebaseDatabase.getInstance().getReference("CustomerFinalOrders").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(snapshot.getKey()).child("Dishes");
                     data.addValueEventListener(new ValueEventListener() {
@@ -89,14 +91,9 @@ public class CustomerTrackFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             CustomerFinalOrders1 customerFinalOrders1 = dataSnapshot.getValue(CustomerFinalOrders1.class);
-                            try{
-                                Log.d("CustomerTrackFragment", customerFinalOrders1.getGrandTotalPrice());
-                                grandtotal.setText(customerFinalOrders1.getGrandTotalPrice() +" vnd" );
-                                Address.setText(customerFinalOrders1.getAddress());
-                                Status.setText(customerFinalOrders1.getStatus());
-                            }catch (Exception e){
-                                Log.d("CustomerTrackFragment", "onDataChange: "+e);
-                            }
+                            grand += Integer.parseInt(customerFinalOrders1.getGrandTotalPrice());
+                            Address.setText(customerFinalOrders1.getAddress());
+                            grandtotal.setText(grand.toString() + "vnd");
 
                         }
 
@@ -105,6 +102,8 @@ public class CustomerTrackFragment extends Fragment {
 
                         }
                     });
+
+
                 }
             }
 
