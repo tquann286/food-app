@@ -16,7 +16,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Chờ xác nhận đơn hàng"
+        android:text="Đơn hàng đang chờ xác nhận"
         android:textColor="@color/Blacklogo"
         android:textSize="21dp" />
 

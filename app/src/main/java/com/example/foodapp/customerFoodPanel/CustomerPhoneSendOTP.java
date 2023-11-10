@@ -138,7 +138,7 @@ public class CustomerPhoneSendOTP extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(CustomerPhoneSendOTP.this, "phone number updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CustomerPhoneSendOTP.this, "Đã cập nhật", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(CustomerPhoneSendOTP.this, "Lỗi 2: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
