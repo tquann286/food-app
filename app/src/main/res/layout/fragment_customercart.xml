@@ -47,7 +47,7 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/btnred"
                 android:gravity="center"
-                android:text="Remove All"
+                android:text="Xóa tất cả"
                 android:textColor="@color/white" />
 
             <Button
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
                 android:gravity="center"
-                android:text="Place Order"
+                android:text="Đặt hàng"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>

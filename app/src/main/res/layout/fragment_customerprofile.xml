@@ -70,7 +70,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="text"
-                            android:text="fname"
+                            android:text="Tên"
                             android:textSize="17sp" />
 
                     </LinearLayout>
@@ -122,7 +122,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="text"
-                            android:text="lname"
+                            android:text="Họ"
                             android:textSize="17sp" />
 
                     </LinearLayout>
@@ -179,7 +179,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="number"
-                            android:text="mobile no"
+                            android:text="Số điện thoại"
                             android:textSize="17sp" />
 
                     </LinearLayout>
@@ -272,7 +272,7 @@
                         android:drawableLeft="@drawable/ic_lock_black_24dp"
                         android:drawablePadding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Password"
+                        android:text="Mật khẩu"
                         android:textColor="@color/Blacklogo"
                         android:textSize="16dp" />
 
@@ -326,7 +326,7 @@
                             android:layout_marginRight="20dp"
                             android:gravity="right"
                             android:inputType="textMultiLine"
-                            android:text="address"
+                            android:text="Địa chỉ"
                             android:textSize="17sp" />
 
                     </LinearLayout>
@@ -478,7 +478,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="16dp"
                             android:layout_marginBottom="10dp"
-                            android:text="Area"
+                            android:text="Khu vực"
                             android:scrollbarSize="17sp" />
 
                     </LinearLayout>

@@ -37,7 +37,7 @@ public class CustomerTrackFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_customertrack, null);
-        getActivity().setTitle("Lịch sử");
+        getActivity().setTitle("Lịch sử đơn hàng");
 
         recyclerView = v.findViewById(R.id.recyclefinalorders);
         recyclerView.setHasFixedSize(true);

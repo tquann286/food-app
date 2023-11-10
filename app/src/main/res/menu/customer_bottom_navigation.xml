@@ -15,7 +15,7 @@
         android:id="@+id/Cust_order"
         android:icon="@drawable/ic_orders_24" />
     <item
-        android:title="Theo dõi"
+        android:title="Lịch Sử"
         android:id="@+id/track"
         android:icon="@drawable/ic_baseline_schedule_time_24"/>
     <item
